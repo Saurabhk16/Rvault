@@ -1,0 +1,338 @@
+{
+	"info": {
+		"_postman_id": "72f26516-8b70-46c4-b490-46e929c7e4ae",
+		"name": "test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "token create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"value": "fed2c02fd195b0534ec32d1f7aad0215a5a813cf914e9a20695e754878728c7a"
+					},
+					{
+						"key": "x-api-secret",
+						"value": "cc23996e65c26a6492fddd876cc202a433a0809cb7fab88bd8bd02ff26096411"
+					},
+					{
+						"key": "Cookie",
+						"value": "chp=M2MwNzg3NTktYzRiOC00NDY0LWJhNjItYTVhMTJhODNjZjRi"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"token_requestor_id\": \"6b3db9a7-60da-4fb2-8a3a-8e042c224a08\",\n    \"card\": {\n        \"number\": \"5286540000000066\",\n        \"expiry_month\": \"12\",\n        \"expiry_year\": \"23\"\n    },\n    \"notes\": {}\n}"
+				},
+				"url": {
+					"raw": "localhost:8888/v1/tokens",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"v1",
+						"tokens"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alt id create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"value": "fed2c02fd195b0534ec32d1f7aad0215a5a813cf914e9a20695e754878728c7a"
+					},
+					{
+						"key": "x-api-secret",
+						"value": "cc23996e65c26a6492fddd876cc202a433a0809cb7fab88bd8bd02ff26096411"
+					},
+					{
+						"key": "Cookie",
+						"value": "chp=M2MwNzg3NTktYzRiOC00NDY0LWJhNjItYTVhMTJhODNjZjRi"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"external_merchant_id\": \"6b3db9a7-60da-4fb2-8a3a-8e042c224a08\",\n    \"card\": {\n        \"number\": \"4514570050784894\",\n        \"expiry_month\": \"12\",\n        \"expiry_year\": \"23\"\n    },\n    \"notes\": {}\n}"
+				},
+				"url": {
+					"raw": "localhost:8888/v1/payments/card/alt_id",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"v1",
+						"payments",
+						"card",
+						"alt_id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create payment with token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "70601715010da7ac8fb5d0a475880e9f8c13f3ad702e8446790395c877daa8cf"
+					},
+					{
+						"key": "x-api-secret",
+						"value": "6ee54f7514adbbddb4ceadfdc48a532df8a329d341984dd9107928cf19d67e45"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 100,\n    \"currency\": \"INR\",\n    \"token_reference_id\": \"Lzk42xeYISXOMo\",\n    \"card\": {\n        \"cvv\": \"123\"\n    },\n    \"description\": \"fooseball table\",\n    \"notes\": {\n        \"note_key\": \"demo note\"\n    },\n    \"customer_id\": \"12345\",\n    \"transaction_reference\": \"20220107202200\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8888/v1/payments/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"v1",
+						"payments",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "guest checkout payment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "fed2c02fd195b0534ec32d1f7aad0215a5a813cf914e9a20695e754878728c7a"
+					},
+					{
+						"key": "x-api-secret",
+						"value": "cc23996e65c26a6492fddd876cc202a433a0809cb7fab88bd8bd02ff26096411"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 500,\n    \"currency\": \"INR\",\n    \"card\": {\n        \"number\": \"5286771723010914\",\n        \"cvv\": \"555\",\n        \"expiry_month\": \"10\",\n        \"expiry_year\": \"29\",\n        \"name\": \"Name\"\n    },\n    \"external_merchant_id\": \"87787\",\n    \"description\": \"fooseball table\",\n    \"notes\": {\n        \"note_key\": \"demo note\"\n    },\n    \"customer_id\":\"12345\",\n    \"transaction_reference\": \"160520231117\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8888/v1/payments/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"v1",
+						"payments",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "with alt id payment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "fed2c02fd195b0534ec32d1f7aad0215a5a813cf914e9a20695e754878728c7a"
+					},
+					{
+						"key": "x-api-secret",
+						"value": "cc23996e65c26a6492fddd876cc202a433a0809cb7fab88bd8bd02ff26096411"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"amount\": 10000,\n   \"currency\": \"INR\",\n   \"card\": {\n      \"alt_id\": \"4514570609663359\",\n      \"cryptogram\": \"M4zcWHy3NIxrpRM4zcWi6iZA8Z4h4514570050784894aef7455b-97b9-4315-83f6-48db9c17e8b1\",\n      \"cvv\": \"123\"\n      },\n\t\"external_merchant_id\": \"87787\",\n    \"description\": \"Test payment\",\n    \"notes\": {\n      \"note_key\": \"value1\"\n    },\n    \"customer_id\": \"njk214\",\n    \"transaction_reference\": \"njk214\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8888/v2/payments/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"v2",
+						"payments",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "otp submit",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"value": "fed2c02fd195b0534ec32d1f7aad0215a5a813cf914e9a20695e754878728c7a"
+					},
+					{
+						"key": "x-api-secret",
+						"value": "cc23996e65c26a6492fddd876cc202a433a0809cb7fab88bd8bd02ff26096411"
+					},
+					{
+						"key": "Cookie",
+						"value": "chp=M2MwNzg3NTktYzRiOC00NDY0LWJhNjItYTVhMTJhODNjZjRi"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"token_requestor_id\": \"d76cb3f3-94bb-4177-954f-09a7ba37c264\",\n    \"card\": {\n        \"number\": \"5286540000000066\",\n        \"expiry_month\": \"12\",\n        \"expiry_year\": \"23\"\n    },\n    \"notes\": {}\n}"
+				},
+				"url": {
+					"raw": "localhost:8888/v1/payments/MArqCh3MMuOGGX/otp_submit",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"v1",
+						"payments",
+						"MArqCh3MMuOGGX",
+						"otp_submit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Autherise",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "70601715010da7ac8fb5d0a475880e9f8c13f3ad702e8446790395c877daa8cf"
+					},
+					{
+						"key": "x-api-secret",
+						"value": "6ee54f7514adbbddb4ceadfdc48a532df8a329d341984dd9107928cf19d67e45"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "XxvxyNXtacH3bH2O1qLSwEcm/KnMU+wcCOukfNrYTeE="
+				},
+				"url": {
+					"raw": "localhost:8888/v1/payments/M9fHK0jWlEtPLB/authorize",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"v1",
+						"payments",
+						"M9fHK0jWlEtPLB",
+						"authorize"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bin fetch",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"value": "70601715010da7ac8fb5d0a475880e9f8c13f3ad702e8446790395c877daa8cf"
+					},
+					{
+						"key": "x-api-secret",
+						"value": "6ee54f7514adbbddb4ceadfdc48a532df8a329d341984dd9107928cf19d67e45"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"token\": \"Lzk42xeYISXOMo\",\n \"alt_id_bin\": \"528677\"\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8888/v1/bin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"v1",
+						"bin"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
